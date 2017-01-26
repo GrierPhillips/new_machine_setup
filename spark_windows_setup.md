@@ -5,7 +5,7 @@ The following are a set of steps taken in order to setup Spark on a fresh instal
 ## Download and Extract Spark
 Download latest release of spark from [apache](spark.apache.org/downloads.html).
 I used Spark 2.0.2 Hadoop 2.7 or later.
-Extract with 7-zip. There is a known bug in 2.1.0 that causes issues with ClassPath and prevents spark from properly starting.
+Extract with 7-zip. There is a known bug in 2.1.0 that causes issues with ClassPath when using pyspark and prevents spark from properly starting.
 
 ## Install Java and Python
 Install latest version of [64-bit Java](http://javadl.oracle.com/webapps/download/AutoDL?BundleId=218833_e9e7ea248e2c4826b92b3f075a80e441).
