@@ -1,6 +1,6 @@
 # Spark on Windows Server 2016
 
-The following are a set of steps taken in order to setup Spark on a fresh installation of Windows Server 2016
+The following are a set of steps taken in order to setup Spark on a fresh installation of Windows Server 2016. Note that this installation will not enable HiveContext, but the alternative SqlContext will be available.
 
 ## Download and Extract Spark
 Download latest release of spark from [apache](spark.apache.org/downloads.html).
