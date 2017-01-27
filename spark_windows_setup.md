@@ -4,8 +4,8 @@ The following are a set of steps taken in order to setup Spark on a fresh instal
 
 ## Download and Extract Spark
 Download latest release of spark from [apache](spark.apache.org/downloads.html).
-I used Spark 2.0.2 Hadoop 2.7 or later.
-Extract with 7-zip. There is a known bug in 2.1.0 that causes issues with ClassPath when using pyspark and prevents spark from properly starting.
+Be aware that it is critical that you get the right Hadoop binaries for the version of spark you choose. See section on Hadoop binaries below.
+Extract with 7-zip.
 
 ## Install Java and Python
 Install latest version of [64-bit Java](http://javadl.oracle.com/webapps/download/AutoDL?BundleId=218833_e9e7ea248e2c4826b92b3f075a80e441).
@@ -24,8 +24,8 @@ The first will open the python shell after showing the version information. The 
 Python 3.5.2 :: Anaconda 4.2.0 (64-bit)
 ```
 
-## Download winutils.exe compiled with Hadoop
-You likely don't have Hadoop installed on windows, but spark will deep within its core look for this file and possibly other binaries. Thankfully a Hadoop contributor has compiled these and has a [repository](https://github.com/steveloughran/winutils) with binaries for Hadoop 2.6 - 2.7.
+## Download Hadoop binary for Windows 64-bit
+You likely don't have Hadoop installed on windows, but spark will deep within its core look for this file and possibly other binaries. Thankfully a Hadoop contributor has compiled these and has a [repository](https://github.com/steveloughran/winutils) with binaries for Hadoop 2.6. These binaries will work for spark version 2.0.2, but will not work with 2.1.0. To use spark 2.1.0 download the binaries from [here](https://github.com/karthikj1/Hadoop-2.7.1-Windows-64-binaries/releases/download/v2.7.1/hadoop-2.7.1.tar.gz).
 
 The best tactic for this is to clone the repo and keep the Hadoop folder corresponding to your version of spark and add the hadoop-%version% folder to your path as `HADOOP_HOME`.
 
