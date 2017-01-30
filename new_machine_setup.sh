@@ -9,7 +9,8 @@ brew update
 
 # Install Anaconda
 curl -L https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.sh > anaconda_script.sh
-bash anaconda_script.sh
+bash anaconda_script.sh -b -p /opt/anaconda3
+echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
 conda update conda
 conda update anaconda
 rm anaconda_script.sh
