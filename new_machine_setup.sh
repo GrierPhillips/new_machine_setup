@@ -8,7 +8,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew update
 
 # Install Anaconda
-curl -L https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.pkg > anaconda_script.sh
+curl -L https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.sh > anaconda_script.sh
 bash anaconda_script.sh
 conda update conda
 conda update anaconda
