@@ -17,13 +17,13 @@ source ~/.bash_profile
 
 # Install useful Mac Apps
 brew tap caskroom/cask
-brew cask install mou
+brew cask install mou # no osx Sierra support yet
 brew cask install iterm2
 brew cask install xquartz
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install postgres
-brew cask install pgadmin3
+brew cask install pgadmin4
 brew cask install gephi
 brew cask install java
 # To Do: Consider changing editors! VSCode, Sublime, or just VIM
@@ -60,8 +60,9 @@ brew install --HEAD hub
 echo  "alias git=hub >> ~/.bash_profile"
 
 # Install r
-brew install homebrew/science r
-brew install rstudio
+brew tap homebrew/science
+brew install r
+brew install Caskroom/cask/rstudio
 
 # Vowpal wabbit
 brew install automake
@@ -76,10 +77,10 @@ echo -e "source ~/.bash_theme" >> ~/.bash_profile
 
 # Install Atom
 wget https://github.com/atom/atom/releases/download/v1.13.1/atom-mac.zip
-unzip atom-mac.zip -d ~/Applications
+unzip atom-mac.zip -d /Applications/
 rm atom-mac.zip
 
 # Install Flux
 wget https://justgetflux.com/mac/Flux.zip
-unzip Flux.zip -d ~/Applications
+unzip Flux.zip -d /Applications/
 rm Flux.zip
