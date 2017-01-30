@@ -18,7 +18,7 @@ java version "1.8.0_121"
 Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
 ```
-Type either `python` or `python --v`.
+Type either `python` or `python --version`.
 The first will open the python shell after showing the version information. The second will show only version information similar to this:
 ```
 Python 3.5.2 :: Anaconda 4.2.0 (64-bit)
