@@ -72,7 +72,7 @@ brew install boost-build
 brew install vowpal-wabbit
 
 # Set desired colors for bash prompt
-echo -e "GREEN='\[$(tput setaf 47)\]'\nBLUE='\[$(tput setaf 33)\]'\nORANGE='\[$(tput setaf 214)'RESET='\[$(tput sgr0)\]'\nfunction parse_git_branch {\ngit branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'}" > ~/.bash_theme
+echo 'GREEN="\[$(tput setaf 47)\]"\nBLUE="\[$(tput setaf 33)\]"\nORANGE="\[$(tput setaf 214)\]"RESET="\[$(tput sgr0)\]"\nfunction parse_git_branch {\ngit branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'}\nexport PS1="${BLUE}\h:${GREEN}\u ${ORANGE}\W ${RED}\$(parse_git_branch)${RESET}$ "' > ~/.bash_theme
 echo -e "source ~/.bash_theme" >> ~/.bash_profile
 
 # Install Atom
