@@ -4,16 +4,23 @@
 sudo chown -R $LOGNAME /usr/local
 
 # Install Homebrew and update
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
-brew update
+if brew --version; then
+  echo 'Brew is already installed!'
+else
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+  brew update
+fi
 
 # Install Anaconda
-curl -L https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.sh > anaconda_script.sh
-sudo bash anaconda_script.sh -b -p /opt/anaconda3
-echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
+if conda -V; then
+  echo 'Anaconda is already installed!'
+else
+  curl -L https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.sh > anaconda_script.sh
+  bash anaconda_script.sh -b
+  rm anaconda_script.sh
+fi
 conda update conda
 conda update anaconda
-rm anaconda_script.sh
 source ~/.bash_profile
 
 # Install useful Mac Apps
@@ -77,11 +84,17 @@ echo 'GREEN="\[$(tput setaf 47)\]"\nBLUE="\[$(tput setaf 33)\]"\nORANGE="\[$(tpu
 echo -e "source ~/.bash_theme" >> ~/.bash_profile
 
 # Install Atom
-wget https://github.com/atom/atom/releases/download/v1.13.1/atom-mac.zip
-unzip atom-mac.zip -d /Applications/
-rm atom-mac.zip
+if atom --version; then
+  echo 'Atom is already installed!'
+else
+  wget https://github.com/atom/atom/releases/download/v1.13.1/atom-mac.zip
+  unzip atom-mac.zip -d /Applications/
+  rm atom-mac.zip
 
 # Install Flux
-wget https://justgetflux.com/mac/Flux.zip
-unzip Flux.zip -d /Applications/
-rm Flux.zip
+if find /Applications/ -iname flux.app; then
+  echo 'Flux is already installed!'
+else
+  wget https://justgetflux.com/mac/Flux.zip
+  unzip Flux.zip -d /Applications/
+  rm Flux.zip
