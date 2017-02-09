@@ -65,6 +65,7 @@ brew install hive
 brew install git
 brew install --HEAD hub
 brew install node
+brew install apache-spark
 npm -g install coffee-script
 
 # Alias hub with git in bash_profile
