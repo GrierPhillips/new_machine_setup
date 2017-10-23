@@ -71,7 +71,7 @@ brew install apache-spark
 npm -g install coffee-script
 
 # Alias hub with git in bash_profile
-echo  "alias git=hub >>" ~/.bash_profile
+echo  "alias git=hub >>" ~/.bashrc
 
 # Install r
 brew tap homebrew/science
