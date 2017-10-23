@@ -45,6 +45,7 @@ brew install graphviz
 brew install imagemagick
 brew install terminal-notifier
 brew install gcc
+brew install pandoc
 
 # Install some useful packages to python
 conda install --yes statsmodels
