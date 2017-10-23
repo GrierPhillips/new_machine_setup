@@ -15,7 +15,7 @@ fi
 if conda -V; then
   echo 'Anaconda is already installed!'
 else
-  curl -L https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.sh > anaconda_script.sh
+  curl -L https://repo.continuum.io/archive/Anaconda3-5.0.0-MacOSX-x86_64.sh > anaconda_script.sh
   bash anaconda_script.sh -b
   rm anaconda_script.sh
 fi
