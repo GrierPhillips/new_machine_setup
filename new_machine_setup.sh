@@ -89,42 +89,10 @@ brew install vowpal-wabbit
 echo -e 'GREEN="\[$(tput setaf 47)\]"\nBLUE="\[$(tput setaf 33)\]"\nORANGE="\[$(tput setaf 214)\]"\nRED="\[$(tput setaf 196)\]"\nRESET="\[$(tput sgr0)\]"' > ~/.bash_theme
 echo -e "function parse_git_branch {\ngit branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'\n}" >> ~/.bash_theme
 echo -e 'export PS1="${BLUE}\h: ${GREEN}\u ${ORANGE}\W ${RED}\$(parse_git_branch)${RESET}$ "' >> ~/.bash_theme
-echo -e "source ~/.bash_theme" >> ~/.bash_profile
+echo -e "source ~/.bash_theme" >> ~/.bash_rc
 
 # Install Atom
-if atom --version; then
-  echo 'Atom is already installed!'
-else
-  wget https://github.com/atom/atom/releases/download/v1.13.1/atom-mac.zip
-  unzip atom-mac.zip -d /Applications/
-  rm atom-mac.zip
-fi
-ln -s /Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm /usr/local/bin/apm
-ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
-
-# Modify Atom settings for PEP8 and other options
-declare config='atom.config.set("editor.preferredLineLength", 80)\n
-               atom.config.set("editor.showIndentGuide", "true")\n
-               atom.config.set("editor.showInvisibles", "true")\n
-               atom.config.set("core.themes", ["seti-ui", "monokai-seti"])'
-echo -e $config >> ~/.atom/init.coffee
-
-# Use Atom Package Manager (apm) to install useful packages
-declare -a packages=(autocomplete-python kite linter linter-pylint \
-                     linter-pycodestyle platform-ide-terminal \
-                     tree-view-git-status symbols-tree-view merge-conflicts \
-                     seti-ui monokai-seti minimap python-tools imdone-atom \
-                     code-peek)
-
-declare installed="$(apm list --installed --bare | cut -d @ -f 1)"
-for ((i=0; i<${#packages[@]}; i++)); do
- if echo "${installed[@]}" | grep -q -w ${packages[i]}; then
-   echo ${packages[i]} "in installed"
-   continue
- else
-   apm install ${packages[i]};
- fi
-done
+bash install_atom.sh
 
 # Install Flux
 if find /Applications/ -iname flux.app; then
