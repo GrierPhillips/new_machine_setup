@@ -51,6 +51,7 @@ brew install pandoc
 conda install --yes statsmodels
 conda install --yes networkx
 conda install --yes pymc
+conda install --yes ipykernel
 pip install pymongo
 conda install --yes -c https://conda.binstar.org/trent psycopg2
 conda install --yes graphviz
