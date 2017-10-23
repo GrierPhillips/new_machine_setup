@@ -71,6 +71,16 @@ brew install node
 brew install apache-spark
 npm -g install coffee-script
 
+# Setup spark kernels for jupyter
+pip install sparkmagic
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
+sm_loc=`pip show sparkmagic | sed -n -e 's/Location: //p'`'/sparkmagic/kernels/'
+kernels=(sparkkernel pysparkkernel pyspark3kernel sparkrkernel)
+for ((i=0; i<${#kernels[@]}; i++));do
+  echo $sm_loc${kernels[i]}
+  jupyter-kernelspec install $sm_loc${kernels[i]} --InstallKernelSpec.prefix='~/anaconda'
+done
+
 # Alias hub with git in bash_profile
 echo  "alias git=hub >>" ~/.bashrc
 
