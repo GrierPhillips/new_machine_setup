@@ -19,8 +19,8 @@ else
   bash anaconda_script.sh -b
   rm anaconda_script.sh
 fi
-conda update conda
-conda update anaconda
+conda update --yes conda
+conda update --yes anaconda
 source ~/.bash_profile
 
 # Install useful Mac Apps
@@ -51,7 +51,8 @@ conda install --yes statsmodels
 conda install --yes networkx
 conda install --yes pymc
 pip install pymongo
-conda install -c https://conda.binstar.org/trent psycopg2
+conda install --yes -c https://conda.binstar.org/trent psycopg2
+conda install --yes graphviz
 pip install unittest2
 pip install pytest
 pip install seaborn
