@@ -102,3 +102,5 @@ else
   unzip Flux.zip -d /Applications/
   rm Flux.zip
 fi
+
+source ~./bash_rc
