@@ -7,6 +7,10 @@ else
   wget https://github.com/atom/atom/releases/download/v1.13.1/atom-mac.zip
   unzip atom-mac.zip -d /Applications/
   rm atom-mac.zip
+  # Modify Atom settings for PEP8 and other options
+  echo -e 'Setting Atom preferences for:\n\tLineLength\n\tIndentGuide\n\tInvisibles\n\tThemes'
+  config='atom.config.set("editor.preferredLineLength", 80)\natom.config.set("editor.showIndentGuide", "true")\natom.config.set("editor.showInvisibles", "true")\natom.config.set("core.themes", ["seti-ui", "monokai-seti"])'
+  echo -e $config >> ~/.atom/init.coffee
 fi
 apm=/usr/local/bin/apm
 atom=/usr/local/bin/atom
@@ -16,13 +20,6 @@ fi
 if ! [ -L $atom ];then
   ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh $atom
 fi
-
-# Modify Atom settings for PEP8 and other options
-declare config='atom.config.set("editor.preferredLineLength", 80)\n
-               atom.config.set("editor.showIndentGuide", "true")\n
-               atom.config.set("editor.showInvisibles", "true")\n
-               atom.config.set("core.themes", ["seti-ui", "monokai-seti"])'
-echo -e $config >> ~/.atom/init.coffee
 
 # Use Atom Package Manager (apm) to install useful packages
 declare -a packages=(autocomplete-python linter linter-pylint linter-flake8\
