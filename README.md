@@ -9,7 +9,10 @@ This script will install Anaconda, R, Spark, Homebrew, and Atom along with a bun
 
 This arrangement is easily modified. [This](http://misc.flogisoft.com/bash/tip_colors_and_formatting) is a great source for colors, and [this](https://wiki.archlinux.org/index.php/Bash/Prompt_customization) is an incredibly extensive resource for all things bash customization.
 
-Currently Atom is set to change some configurations for line length and visible spacing. It will also install the following packages:
+### install_atom.sh
+This script is called by new_machine_setup.sh to install and configure atom.
+
+Currently Atom is set to change the preferred line length to 80, enable visible spacing and indentations, set the ui theme to [seti](https://atom.io/packages/seti-ui), and the syntax theme to [monokai-seti](https://atom.io/packages/monokai-seti). It will also install the following packages:
 
   - [autocomplete-python](https://atom.io/packages/autocomplete-python)
   - [flask-snippets](https://atom.io/packages/flask-snippets)
@@ -30,6 +33,3 @@ Currently Atom is set to change some configurations for line length and visible 
 
 ### spark_windows_setup.md
 This file is a set of instructions for installing spark on a windows machine.
-
-To Do:
-Add scripts for setting up benchmarking and testing environments within AWS instances.
