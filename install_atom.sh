@@ -26,7 +26,8 @@ declare -a packages=(autocomplete-python linter linter-pylint linter-flake8\
                      flask-snippets linter-pycodestyle platformio-ide-terminal \
                      tree-view-git-status symbols-tree-view merge-conflicts \
                      seti-ui monokai-seti minimap python-tools imdone-atom \
-                     markdown-preview-plus linter-ui-default)
+                     markdown-preview-plus linter-ui-default intentions \
+		     busy-signal)
 
 declare installed="$(apm list --installed --bare | cut -d @ -f 1)"
 for ((i=0; i<${#packages[@]}; i++)); do
