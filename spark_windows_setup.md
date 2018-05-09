@@ -3,7 +3,7 @@
 The following are a set of steps taken in order to setup Spark on a fresh installation of Windows Server 2016.
 
 ## Download and Extract Spark
-Download latest release of spark from [apache](spark.apache.org/downloads.html).
+Download latest release of spark from [apache](http://spark.apache.org/downloads.html).
 Be aware that it is critical that you get the right Hadoop binaries for the version of spark you choose. See section on Hadoop binaries below.
 Extract with 7-zip.
 
