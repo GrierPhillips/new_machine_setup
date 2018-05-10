@@ -8,7 +8,7 @@ Be aware that it is critical that you get the right Hadoop binaries for the vers
 Extract with 7-zip.
 
 ## Install Java and Python
-Install latest version of [64-bit Java](http://javadl.oracle.com/webapps/download/AutoDL?BundleId=218833_e9e7ea248e2c4826b92b3f075a80e441).
+Install latest version of [64-bit Java Binary](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 Install [Anaconda3 Python 3.5, 64-bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86_64.exe) (or other version of your choice) for all users. Restart server.
 
 ## Test Java and Python
