@@ -7,7 +7,7 @@ sudo chown -R $LOGNAME /usr/local
 if brew --version; then
   echo 'Brew is already installed!'
 else
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
 fi
 
@@ -15,7 +15,7 @@ fi
 if conda -V; then
   echo 'Anaconda is already installed!'
 else
-  curl -L https://repo.continuum.io/archive/Anaconda3-5.0.0-MacOSX-x86_64.sh > anaconda_script.sh
+  curl -L https://repo.continuum.io/archive/Anaconda3-2020.02-MacOSX-x86_64.sh > anaconda_script.sh
   bash anaconda_script.sh -b
   rm anaconda_script.sh
 fi
@@ -24,12 +24,9 @@ conda update --yes anaconda
 source ~/.bash_profile
 
 # Install useful Mac Apps
-brew tap caskroom/cask
-brew cask install mou # no osx Sierra support yet
+brew tap homebrew/cask
 brew cask install iterm2
 brew cask install xquartz
-brew cask install virtualbox
-brew cask install vagrant
 brew cask install postgres
 brew cask install pgadmin4
 brew cask install gephi
@@ -42,15 +39,11 @@ echo 'export PATH="~/Applications/Postgres.app/Contents/Versions/latest/bin/:$PA
 brew install wget
 brew install mongodb
 brew install graphviz
-brew install imagemagick
 brew install terminal-notifier
 brew install gcc
 brew install pandoc
 
 # Install some useful packages to python
-conda install --yes statsmodels
-conda install --yes networkx
-conda install --yes pymc
 conda install --yes ipykernel
 pip install pymongo
 conda install --yes -c https://conda.binstar.org/trent psycopg2
@@ -97,10 +90,10 @@ brew install boost-build
 brew install vowpal-wabbit
 
 # Set desired colors for bash prompt
-echo -e 'GREEN="\[$(tput setaf 47)\]"\nBLUE="\[$(tput setaf 33)\]"\nORANGE="\[$(tput setaf 214)\]"\nRED="\[$(tput setaf 196)\]"\nRESET="\[$(tput sgr0)\]"' > ~/.bash_theme
+echo -e 'GREEN="$(tput setaf 47)"\nBLUE="$(tput setaf 33)"\nORANGE="$(tput setaf 214)"\nRED="$(tput setaf 196)"\nRESET="$(tput sgr0)"' > ~/.bash_theme
 echo -e "function parse_git_branch {\ngit branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'\n}" >> ~/.bash_theme
-echo -e 'export PS1="${BLUE}\h: ${GREEN}\u ${ORANGE}\W ${RED}\$(parse_git_branch)${RESET}$ "' >> ~/.bash_theme
-echo -e "source ~/.bash_theme" >> ~/.bash_rc
+echo -e 'export PS1="%{${BLUE}%}%m%\: %{${GREEN}%}%n%\ %{${ORANGE}%}%1~%{${RED}%} $(parse_git_branch)%{${RESET}%} $ "' >> ~/.bash_theme
+echo -e "source ~/.bash_theme" >> ~/.bashrc
 
 # Install Atom
 bash install_atom.sh
@@ -114,4 +107,7 @@ else
   rm Flux.zip
 fi
 
-source ~./bash_rc
+source ~./bashrc
+
+echo -e '[[ -s ~/.bashrc ]] && source ~/.bashrc' >> ~/.bash_profile
+echo -e 'source ~/.bash_profile' >> ~/.zshrc

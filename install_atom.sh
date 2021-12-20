@@ -4,12 +4,13 @@
 if atom --version; then
   echo 'Atom is already installed!'
 else
-  wget https://github.com/atom/atom/releases/download/v1.13.1/atom-mac.zip
+  wget https://github.com/atom/atom/releases/download/v1.54.0/atom-mac.zip
   unzip atom-mac.zip -d /Applications/
   rm atom-mac.zip
   # Modify Atom settings for PEP8 and other options
   echo -e 'Setting Atom preferences for:\n\tLineLength\n\tIndentGuide\n\tInvisibles\n\tThemes'
   config='atom.config.set("editor.preferredLineLength", 80)\natom.config.set("editor.showIndentGuide", "true")\natom.config.set("editor.showInvisibles", "true")\natom.config.set("core.themes", ["seti-ui", "monokai-seti"])'
+  touch ~/.atom/init.coffee
   echo -e $config >> ~/.atom/init.coffee
 fi
 apm=/usr/local/bin/apm
@@ -24,10 +25,8 @@ fi
 # Use Atom Package Manager (apm) to install useful packages
 declare -a packages=(autocomplete-python linter linter-pylint linter-flake8\
                      flask-snippets linter-pycodestyle platformio-ide-terminal \
-                     tree-view-git-status symbols-tree-view merge-conflicts \
-                     seti-ui monokai-seti minimap python-tools imdone-atom \
-                     markdown-preview-plus linter-ui-default intentions \
-		     busy-signal)
+                     seti-ui monokai-seti python-tools markdown-preview-plus \
+                     linter-ui-default intentions busy-signal)
 
 declare installed="$(apm list --installed --bare | cut -d @ -f 1)"
 for ((i=0; i<${#packages[@]}; i++)); do
